@@ -119,7 +119,7 @@
 			$myn_genre = $_POST['myn_genre'] ;
 				include('connec.php') ;
 				if(isset($myn_genre)) {
-				$Retatbaf = $base-> prepare("SELECT AVG(genre) as moyenne FROM table_1 WHERE genre = :codebaf") ;
+				$Retatbaf = $base-> prepare("SELECT avg(year(now())-right(date_de_naissance,4)) as moyenne FROM table_1 WHERE genre = :codebaf") ;
 				$Retatbaf->execute(array('codebaf'=>$myn_genre
 				));
 				while($vebaf = $Retatbaf->fetch()) {
